@@ -1,11 +1,19 @@
 {
- "_doc": "Expert prior suitability tables. host: index = DLR tree class (0 pine,1 spruce,2 douglas,3 larch,4 fir,5 beech,6 oak,7 birch,8 alder,9 other,10 canopy loss). nutrient: A,Z,M,K,R (half steps interpolated). water: 1 dry,2 mod. fresh,3 weakly gw-fresh,4 fresh,5 very fresh,6 damp,7 wet,8 swampy. unknown: factor used when the site map has no data for a forest cell. Weights are priors from field mycology, checked by pipeline/validate.py, not published constants.",
+ "_doc": "Expert prior suitability tables. host: index = DLR tree class (0 pine,1 spruce,2 douglas,3 larch,4 fir,5 beech,6 oak,7 birch,8 alder,9 other,10 canopy loss). nutrient: A,Z,M,K,R (half steps interpolated). water: 1 dry,2 mod. fresh,3 weakly gw-fresh,4 fresh,5 very fresh,6 damp,7 wet,8 swampy. unknown: factor used when the site map has no data for a forest cell. Names and notes in en/de/fr. Weights are priors from field mycology, checked by pipeline/validate.py, not published constants.",
  "species": [
   {
    "id": "edulis",
-   "de": "Steinpilz",
-   "en": "Porcini (cep)",
    "sci": "Boletus edulis",
+   "name": {
+    "en": "Porcini (cep)",
+    "de": "Steinpilz",
+    "fr": "Cèpe de Bordeaux"
+   },
+   "notes": {
+    "en": "Broad host range, but in Brandenburg most finds are under pine. Fruits after warm rain in late summer.",
+    "de": "Breites Wirtsspektrum, in Brandenburg aber meist unter Kiefer gefunden. Fruchtet nach warmem Regen im Spätsommer.",
+    "fr": "Large gamme d'hôtes, mais en Brandebourg surtout trouvé sous les pins. Fructifie après des pluies chaudes en fin d'été."
+   },
    "gbif": 5954958,
    "guild": "ectomycorrhizal",
    "season": [
@@ -44,8 +52,6 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Gallenröhrling (Tylopilus felleus): bitter, ruins a meal, pinkish pores and dark net on the stem. Taste a crumb raw and spit it out.",
-   "notes": "Broad host range. Fruits mainly after warm rain in late summer.",
    "prior": {
     "host": [
      0.8,
@@ -81,9 +87,17 @@
   },
   {
    "id": "pinophilus",
-   "de": "Kiefern-Steinpilz",
-   "en": "Pine bolete",
    "sci": "Boletus pinophilus",
+   "name": {
+    "en": "Pine bolete",
+    "de": "Kiefern-Steinpilz",
+    "fr": "Cèpe des pins"
+   },
+   "notes": {
+    "en": "Pine forests on poor sand. Too few records in Berlin and Brandenburg to validate.",
+    "de": "Kiefernwälder auf armem Sand. Zu wenige Funde in Berlin und Brandenburg für eine Validierung.",
+    "fr": "Pinèdes sur sable pauvre. Trop peu d'observations à Berlin et dans le Brandebourg pour valider."
+   },
    "gbif": 5954949,
    "guild": "ectomycorrhizal",
    "season": [
@@ -122,15 +136,21 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Gallenröhrling (Tylopilus felleus), bitter.",
-   "notes": "Too few GBIF records in Berlin/Brandenburg to validate.",
    "prior": null
   },
   {
    "id": "badia",
-   "de": "Maronenröhrling",
-   "en": "Bay bolete",
    "sci": "Imleria badia",
+   "name": {
+    "en": "Bay bolete",
+    "de": "Maronenröhrling",
+    "fr": "Bolet bai"
+   },
+   "notes": {
+    "en": "The most common bolete of Brandenburg pine forests.",
+    "de": "Der häufigste Röhrling der Brandenburger Kiefernwälder.",
+    "fr": "Le bolet le plus commun des pinèdes du Brandebourg."
+   },
    "gbif": 7832732,
    "guild": "ectomycorrhizal",
    "season": [
@@ -169,8 +189,6 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Gallenröhrling (bitter). Blue bruising of the pores is normal for this species.",
-   "notes": "The most common bolete of Brandenburg pine forests.",
    "prior": {
     "host": [
      1.0,
@@ -206,9 +224,17 @@
   },
   {
    "id": "cibarius",
-   "de": "Pfifferling",
-   "en": "Chanterelle",
    "sci": "Cantharellus cibarius",
+   "name": {
+    "en": "Chanterelle",
+    "de": "Pfifferling",
+    "fr": "Girolle"
+   },
+   "notes": {
+    "en": "Rare in much of Brandenburg and sensitive to nitrogen pollution. This map over-predicts it.",
+    "de": "In weiten Teilen Brandenburgs selten und empfindlich gegen Stickstoffeintrag. Die Karte überschätzt ihn.",
+    "fr": "Rare dans une grande partie du Brandebourg et sensible à la pollution azotée. La carte la surestime."
+   },
    "gbif": 5249504,
    "guild": "ectomycorrhizal",
    "season": [
@@ -247,8 +273,6 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Falscher Pfifferling (Hygrophoropsis aurantiaca): true gills, soft. Ölbaumtrichterling (Omphalotus): toxic, grows in clusters on wood.",
-   "notes": "Rare in much of Brandenburg and sensitive to nitrogen deposition. This map over-predicts it.",
    "prior": {
     "host": [
      0.9,
@@ -284,9 +308,17 @@
   },
   {
    "id": "scabrum",
-   "de": "Birkenpilz",
-   "en": "Brown birch bolete",
    "sci": "Leccinum scabrum",
+   "name": {
+    "en": "Brown birch bolete",
+    "de": "Birkenpilz",
+    "fr": "Bolet rude"
+   },
+   "notes": {
+    "en": "Strictly with birch. Birches mixed into pine stands are invisible in the dominant tree map, so the real habitat is wider than shown.",
+    "de": "Nur bei Birken. Eingestreute Birken in Kiefernforsten fehlen in der Baumartenkarte, der echte Lebensraum ist also größer.",
+    "fr": "Uniquement avec le bouleau. Les bouleaux dispersés dans les pinèdes n'apparaissent pas sur la carte des essences : l'habitat réel est plus large."
+   },
    "gbif": 9141390,
    "guild": "ectomycorrhizal",
    "season": [
@@ -325,8 +357,6 @@
     0.0
    ],
    "unknown": 0.7,
-   "lookalikes": "Gallenröhrling (Tylopilus felleus), bitter. Other Leccinum species are edible when well cooked.",
-   "notes": "Strictly with birch. Birches mixed into pine stands are invisible in the dominant-species map, so true habitat is wider than shown.",
    "prior": {
     "host": [
      0.15,
@@ -362,9 +392,17 @@
   },
   {
    "id": "versipelle",
-   "de": "Birken-Rotkappe",
-   "en": "Orange birch bolete",
    "sci": "Leccinum versipelle",
+   "name": {
+    "en": "Orange birch bolete",
+    "de": "Birken-Rotkappe",
+    "fr": "Bolet orangé des bouleaux"
+   },
+   "notes": {
+    "en": "Must be cooked thoroughly (at least 20 minutes): raw or undercooked it is poisonous. Too few records to validate. The aspen form is not modelled.",
+    "de": "Muss gründlich gegart werden (mindestens 20 Minuten): roh oder zu kurz gegart giftig. Zu wenige Funde für eine Validierung. Die Espen-Rotkappe ist nicht modelliert.",
+    "fr": "Doit être bien cuit (au moins 20 minutes) : cru ou mal cuit, il est toxique. Trop peu d'observations pour valider. La forme des trembles n'est pas modélisée."
+   },
    "gbif": 2524490,
    "guild": "ectomycorrhizal",
    "season": [
@@ -403,15 +441,21 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Must be cooked thoroughly (at least 20 min): raw or undercooked Rotkappen cause poisoning.",
-   "notes": "Too few GBIF records to validate. Aspen Rotkappe not modelled: aspen is not in any tree map.",
    "prior": null
   },
   {
    "id": "luteus",
-   "de": "Butterpilz",
-   "en": "Slippery jack",
    "sci": "Suillus luteus",
+   "name": {
+    "en": "Slippery jack",
+    "de": "Butterpilz",
+    "fr": "Nonnette voilée"
+   },
+   "notes": {
+    "en": "Pine only, prefers young stands and edges (stand age is not modelled).",
+    "de": "Nur bei Kiefer, bevorzugt junge Bestände und Ränder (Bestandesalter nicht modelliert).",
+    "fr": "Uniquement avec le pin, préfère les jeunes peuplements et les lisières (l'âge n'est pas modélisé)."
+   },
    "gbif": 7777157,
    "guild": "ectomycorrhizal",
    "season": [
@@ -450,8 +494,6 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Other Suillus species, harmless. Peel the slimy cap skin, some people react to it.",
-   "notes": "Pine only, prefers young stands and edges (stand age not modelled).",
    "prior": {
     "host": [
      1.0,
@@ -487,9 +529,17 @@
   },
   {
    "id": "variegatus",
-   "de": "Sandröhrling",
-   "en": "Velvet bolete",
    "sci": "Suillus variegatus",
+   "name": {
+    "en": "Velvet bolete",
+    "de": "Sandröhrling",
+    "fr": "Bolet moucheté"
+   },
+   "notes": {
+    "en": "Poor dry pine sands, the classic Brandenburg pine heath.",
+    "de": "Arme, trockene Kiefernsande, die klassische Brandenburger Kiefernheide.",
+    "fr": "Sables pauvres et secs sous pins, la lande à pins typique du Brandebourg."
+   },
    "gbif": 9043861,
    "guild": "ectomycorrhizal",
    "season": [
@@ -528,8 +578,6 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Harmless Suillus relatives. Mediocre taste.",
-   "notes": "Poor dry pine sands, the classic Brandenburg Kiefernheide.",
    "prior": {
     "host": [
      1.0,
@@ -565,9 +613,17 @@
   },
   {
    "id": "sparassis",
-   "de": "Krause Glucke",
-   "en": "Cauliflower fungus",
    "sci": "Sparassis crispa",
+   "name": {
+    "en": "Cauliflower fungus",
+    "de": "Krause Glucke",
+    "fr": "Sparassis crépu"
+   },
+   "notes": {
+    "en": "Grows at the base of old pines, often in the same spot every year (stand age is not modelled).",
+    "de": "Wächst am Fuß alter Kiefern, oft jedes Jahr an derselben Stelle (Bestandesalter nicht modelliert).",
+    "fr": "Pousse au pied des vieux pins, souvent au même endroit chaque année (l'âge n'est pas modélisé)."
+   },
    "gbif": 2550247,
    "guild": "parasite",
    "season": [
@@ -606,15 +662,21 @@
     0.0
    ],
    "unknown": 0.7,
-   "lookalikes": "Hard to confuse. Grows at the base of old pines, often in the same spot each year.",
-   "notes": "Needs old pines (stand age not modelled).",
    "prior": null
   },
   {
    "id": "procera",
-   "de": "Parasol",
-   "en": "Parasol",
    "sci": "Macrolepiota procera",
+   "name": {
+    "en": "Parasol",
+    "de": "Parasol",
+    "fr": "Coulemelle"
+   },
+   "notes": {
+    "en": "Not tied to trees: modelled from forest edges, clearings and soil nutrients. Low confidence.",
+    "de": "Nicht an Bäume gebunden: modelliert aus Waldrändern, Lichtungen und Nährkraft. Geringe Verlässlichkeit.",
+    "fr": "Non lié aux arbres : modélisé à partir des lisières, clairières et de la richesse du sol. Fiabilité faible."
+   },
    "gbif": 8914748,
    "guild": "saprotroph",
    "season": [
@@ -654,8 +716,6 @@
     0.0
    ],
    "unknown": 0.6,
-   "lookalikes": "Young specimens can be confused with deadly Amanitas (Knollenblätterpilz). Only pick large caps with a snakeskin-patterned stem and a movable double ring. Safranschirmling causes stomach upset.",
-   "notes": "Not tied to trees: modelled from forest edges, clearings and nutrient level. Low confidence.",
    "prior": {
     "host": [
      0.3,
@@ -692,16 +752,30 @@
  ],
  "excluded": [
   {
-   "de": "Grünling",
    "sci": "Tricholoma equestre",
-   "why": "Repeated meals cause rhabdomyolysis, deaths documented. Not presented as edible.",
-   "en": "Yellow knight"
+   "name": {
+    "en": "Yellow knight",
+    "de": "Grünling",
+    "fr": "Tricholome équestre"
+   },
+   "why": {
+    "en": "repeated meals cause muscle breakdown (rhabdomyolysis), deaths documented.",
+    "de": "wiederholter Verzehr zerstört Muskelgewebe (Rhabdomyolyse), Todesfälle belegt.",
+    "fr": "des repas répétés détruisent les muscles (rhabdomyolyse), décès documentés."
+   }
   },
   {
-   "de": "Morcheln",
    "sci": "Morchella spp.",
-   "why": "Spring micro-sites not captured by the data; deadly lookalike Gyromitra.",
-   "en": "Morels"
+   "name": {
+    "en": "Morels",
+    "de": "Morcheln",
+    "fr": "Morilles"
+   },
+   "why": {
+    "en": "spring micro-sites are not captured by the data, and the deadly false morel looks alike.",
+    "de": "die Frühjahrs-Kleinstandorte fehlen in den Daten, und die giftige Frühjahrslorchel sieht ähnlich aus.",
+    "fr": "les micro-sites printaniers ne figurent pas dans les données, et la gyromitre mortelle leur ressemble."
+   }
   }
  ],
  "classes": {

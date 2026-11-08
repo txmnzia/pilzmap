@@ -106,3 +106,8 @@ dialog form { padding: 10px 20px 16px; }
 }
 .maplibregl-ctrl-top-right { margin-top: calc(env(safe-area-inset-top, 0px) + 54px); }
 .maplibregl-popup { z-index: 3; }
+
+.top-actions { display: flex; align-items: center; gap: 8px; }
+.lang { display: flex; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); overflow: hidden; }
+.lang button { border: 0; background: transparent; color: var(--muted); font: 600 12px "Geist", sans-serif; padding: 8px 10px; cursor: pointer; min-width: 36px; }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #fff; }

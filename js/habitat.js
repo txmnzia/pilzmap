@@ -9,12 +9,6 @@
 //   B water  : low nibble 1 dry .. 8 swampy (0 unknown), 0x10 NSG, 0x20 national park
 //   A        : 255 inside Berlin/Brandenburg
 
-export const TREES = ["Pine", "Spruce", "Douglas fir", "Larch", "Fir", "Beech", "Oak",
-  "Birch", "Alder", "Other broadleaf", "Clearing / canopy loss"];
-export const NUTRIENT = ["unknown", "A poor", "A poor", "A–Z", "Z rather poor", "Z–M",
-  "M medium", "M–K", "K rich", "K–R", "R very rich"];
-export const WATER = ["unknown", "dry", "moderately fresh", "weakly groundwater-fresh", "fresh",
-  "very fresh", "damp", "wet", "swampy"];
 export const FLAG = { CARBONATE: 0x10, PEAT: 0x20, SPOIL: 0x40, EDGE: 0x80, NSG: 0x10, NATP: 0x20 };
 
 const LETTERS = ["A", "Z", "M", "K", "R"];
@@ -93,12 +87,12 @@ export function colorize(codes, out, compiled, classes, width = 256) {
   return out;
 }
 
-// Human readable description of one pixel.
+// Decoded attributes of one pixel (indices; labels come from js/i18n.js).
 export function describe(tree, soil, water) {
   return {
-    tree: tree === 255 ? "no forest" : TREES[tree] ?? "?",
-    nutrient: NUTRIENT[soil & 0x0f],
-    water: WATER[water & 0x0f],
+    tree: tree <= 10 ? tree : null,
+    nutrient: soil & 0x0f,
+    water: water & 0x0f,
     peat: (soil & FLAG.PEAT) !== 0,
     carbonate: (soil & FLAG.CARBONATE) !== 0,
     edge: (soil & FLAG.EDGE) !== 0,

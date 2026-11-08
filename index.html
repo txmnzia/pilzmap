@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="vendor/maplibre-gl-4.7.1/maplibre-gl.css">
-  <link rel="stylesheet" href="css/app.css?v=0.2.0">
+  <link rel="stylesheet" href="css/app.css?v=0.3.0">
 </head>
 <body>
   <div id="root">
@@ -28,27 +28,25 @@
         <span class="brand-name">Pilzmap</span>
         <span class="version" id="version"></span>
       </div>
-      <button class="icon-btn" id="info-btn" aria-label="Method, data and legal">i</button>
+      <div class="top-actions">
+        <div class="lang" id="lang" role="group"></div>
+        <button class="icon-btn" id="info-btn" aria-label="Method, data and legal">i</button>
+      </div>
     </header>
 
     <section class="sheet bottom-chrome" id="sheet">
       <div class="chips" id="chips" role="tablist" aria-label="Species"></div>
       <div class="card" id="card"></div>
-      <div class="legend">
-        <span><i class="sw sw-3"></i>high</span>
-        <span><i class="sw sw-2"></i>medium</span>
-        <span><i class="sw sw-1"></i>low</span>
-        <span><i class="sw sw-nsg"></i>nature reserve</span>
-      </div>
+      <div class="legend" id="legend"></div>
     </section>
 
     <dialog id="info">
       <div class="dialog-body" id="info-body"></div>
-      <form method="dialog"><button class="btn">Close</button></form>
+      <form method="dialog"><button class="btn" id="close-btn">Close</button></form>
     </dialog>
   </div>
 
   <script src="vendor/maplibre-gl-4.7.1/maplibre-gl.js"></script>
-  <script type="module" src="js/main.js?v=0.2.0"></script>
+  <script type="module" src="js/main.js?v=0.3.0"></script>
 </body>
 </html>

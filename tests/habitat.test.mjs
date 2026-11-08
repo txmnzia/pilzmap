@@ -23,7 +23,7 @@ test("species tables are complete", () => {
     assert.equal(sp.host.length, 11, sp.id);
     assert.equal(sp.water.length, 8, sp.id);
     for (const l of "AZMKR") assert.ok(sp.nutrient[l] >= 0 && sp.nutrient[l] <= 1, sp.id + l);
-    assert.ok(sp.lookalikes && sp.season.length === 2, sp.id);
+    assert.equal(sp.season.length, 2, sp.id);
   }
 });
 
@@ -55,7 +55,7 @@ test("colorize hatches protected areas and leaves outside transparent", () => {
 
 test("describe and tile maths", () => {
   const d = describe(0, 4 | 0x80, 2 | 0x10);
-  assert.equal(d.tree, "Pine"); assert.ok(d.edge && d.nsg && d.siteKnown);
+  assert.equal(d.tree, 0); assert.equal(describe(255, 0, 0).tree, null); assert.ok(d.edge && d.nsg && d.siteKnown);
   const p = lngLatToTilePixel(13.4, 52.5, 12);
   assert.deepEqual([p.tx, p.ty], [2200, 1343]);
 });

@@ -144,3 +144,55 @@ Options considered:
 - Brandenburg forest site map: confirm the WFS delivers attributes (Nährkraft, Feuchte)
   as vectors. If only WMS images exist, the model falls back to BÜK 300 and loses most of
   its value.
+
+## 10. Results v0.1 (2026-11-08)
+
+Decisions taken: data hosts allowed in the session environment, hybrid model, static
+habitat first, 20 m code tiles on GitHub Pages.
+
+### Data access, as found
+- Brandenburg forest site WFS returns "not authorized". The WMS is open and accepts
+  `SLD_BODY`, so each class was drawn in an exact palette colour (two passes: nutrient,
+  water) at 6.67 m/px (layer is blank above about 1:25 000), decoded, and 3x3 mode
+  aggregated to 20 m. Check against 212 independent `GetFeatureInfo` points: **98.1 %**
+  agreement on both nutrient and water class.
+- Code system: SEA 95 Stamm-Standortsgruppen, decoded from the official legend
+  (LFE 2008): nutrient A < Z < M < K < R, water from `3` dry to `N0` swampy, `O` peat.
+- Berlin: vector WFS, dl-de/zero, same code system (legacy `W` prefix mapped per legend).
+- Site data covers **72 %** of forest (pine 79 %, "other" broadleaf 33 %). Gaps are real
+  (point queries confirm), e.g. Lusatian mining land.
+- GBIF: 31 604 Agaricomycetes records in BB + BE, 27 370 with position error <= 200 m,
+  85 % iNaturalist. The search API stops paging near offset 10 000: fetch in year slices.
+
+### Validation (5-fold spatial CV, AUC vs other fungi records inside forest)
+
+| Species | Records | Expert prior | Calibrated | Used |
+|---|---|---|---|---|
+| Porcini | 195 | 0.49 | 0.59 | calibrated |
+| Bay bolete | 261 | 0.69 | 0.71 | calibrated |
+| Chanterelle | 62 | 0.59 | 0.60 | calibrated |
+| Brown birch bolete | 47 | 0.58 | 0.61 | calibrated |
+| Slippery jack | 134 | 0.75 | 0.75 | calibrated |
+| Velvet bolete | 55 | 0.75 | 0.75 | calibrated |
+| Cauliflower fungus | 129 | 0.70 | 0.70 | prior |
+| Parasol | 175 | 0.60 | 0.60 | calibrated |
+| Pine bolete, Orange birch bolete | 2, 6 | untested | | prior |
+
+### What we learned
+- The textbook prior was wrong for Brandenburg porcini: records sit in pine 59 % of the
+  time vs 32 % for all forest fungi records; oak is under-represented. Calibration fixed
+  this (AUC 0.49 to 0.59). Chanterelle shows the same pine bias.
+- Soil nutrient and water classes carry only a weak signal through 200 m record noise;
+  most Brandenburg forest sits in one narrow band (pine, Z/M, moderately fresh).
+- Consequence: "high" covers 40 to 65 % of forest for the pine species. The map is good
+  at ruling ground out, not at ranking within the pine-on-sand block. Relative
+  (quantile) classes were rejected: they would fake precision inside tied scores.
+- Calibration guards: shrinkage toward the prior by sample size, normaliser restricted
+  to well-sampled levels, ecological structural zeros kept (data had pushed porcini on
+  wet soil to 0.67, from position error next to bogs).
+
+### Next candidates (not built)
+1. Phase 2 weather layer: DWD daily soil moisture + precipitation, "conditions now".
+2. Stand age / canopy height (if an open product exists) to separate young and old pine.
+3. Better occurrence data: DGfM Pilzkartierung (request), which has expert-verified records.
+4. Admixed birch: sub-pixel tree fractions (Thünen/forestpulse fraction maps).

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#131829"/><stop offset="1" stop-color="#090c14"/></linearGradient>
+    <linearGradient id="ic" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7c47a"/><stop offset="1" stop-color="#d0782a"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".6" r=".52"><stop offset="0" stop-color="#d0782a" stop-opacity=".38"/><stop offset="1" stop-color="#d0782a" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="1.5" y="1.5" width="509" height="509" rx="110.5" fill="none" stroke="#232c45" stroke-width="3"/>
+  <circle cx="256" cy="292" r="150" fill="url(#glow)"/>
+  <g transform="translate(100,110) scale(13)" fill="none" stroke="url(#ic)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M2.5 11.5a9.5 8 0 0 1 19 0z"/>
+    <path d="M9 11.5v6a3 3 0 0 0 6 0v-6"/>
+    <circle cx="8.5" cy="7.5" r=".6" fill="url(#ic)"/>
+    <circle cx="14.5" cy="6" r=".6" fill="url(#ic)"/>
+  </g>
+</svg>

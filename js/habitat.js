@@ -67,9 +67,9 @@ export function classify(s, classes) {
 // Colours per class: transparent, low, medium, high (sequential, one hue family).
 export const CLASS_RGBA = [
   [0, 0, 0, 0],
-  [250, 214, 120, 120],
-  [240, 140, 50, 190],
-  [205, 60, 25, 235],
+  [242, 193, 78, 170],
+  [228, 118, 28, 215],
+  [178, 40, 18, 235],
 ];
 
 // Colourise a code tile (Uint8ClampedArray RGBA) in place into out (same length).
@@ -85,7 +85,7 @@ export function colorize(codes, out, compiled, classes, width = 256) {
       if (prot) {
         const p = i >> 2;
         const x = p % width, y = (p / width) | 0;
-        if ((x + y) % 8 < 2) { r = 120; g = 170; b = 255; al = Math.max(al, 160); }
+        if ((x + y) % 8 < 2) { r = 29; g = 78; b = 216; al = Math.max(al, 200); }
       }
     }
     out[i] = r; out[i + 1] = g; out[i + 2] = b; out[i + 3] = al;

@@ -49,7 +49,7 @@ test("colorize hatches protected areas and leaves outside transparent", () => {
   const codes = new Uint8ClampedArray(256 * 256 * 4);
   codes.set([0, 4, 2 | 0x10, 255], 0); // pixel (0,0): NSG, hatch row
   const out = colorize(codes, new Uint8ClampedArray(codes.length), c, cfg.classes);
-  assert.deepEqual([...out.slice(0, 4)], [120, 170, 255, 235]);
+  assert.deepEqual([...out.slice(0, 4)], [29, 78, 216, 235]);
   assert.equal(out[7], 0);
 });
 

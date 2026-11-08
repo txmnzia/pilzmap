@@ -101,7 +101,9 @@ const tilesFor = (sp) => [`pilz://${sp.id}/{z}/{x}/{y}`];
 
 function addHabitat() {
   if (map.getSource("hab")) return;
-  const firstLabel = map.getStyle().layers.find((l) => l.type === "symbol")?.id;
+  // below roads and paths (field use: trails must stay visible), else below labels
+  const layers = map.getStyle().layers;
+  const firstLabel = (layers.find((l) => l["source-layer"] === "transportation") || layers.find((l) => l.type === "symbol"))?.id;
   map.addSource("hab", { type: "raster", tiles: tilesFor(current), tileSize: 256,
     minzoom: TILE_ZOOM.min, maxzoom: TILE_ZOOM.max, bounds: BOUNDS });
   map.addLayer({ id: "hab", type: "raster", source: "hab",
@@ -111,7 +113,7 @@ map.on("load", addHabitat);
 // basemap failed (offline / blocked): keep a plain background so the habitat layer still shows
 map.on("error", (e) => {
   if (!map.isStyleLoaded() && !map.getSource("hab")) {
-    map.setStyle({ version: 8, sources: {}, layers: [{ id: "bg", type: "background", paint: { "background-color": "#0e1220" } }] });
+    map.setStyle({ version: 8, sources: {}, layers: [{ id: "bg", type: "background", paint: { "background-color": "#eceee6" } }] });
     map.once("styledata", addHabitat);
   }
   console.warn(e.error || e);

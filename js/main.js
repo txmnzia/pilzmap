@@ -10,6 +10,12 @@ const store = {
 
 $("version").textContent = "v" + APP_VERSION;
 
+// fail soft if the map library did not load: say so instead of a blank screen
+if (typeof maplibregl === "undefined") {
+  $("card").innerHTML = "<p>The map library failed to load. Reload the page.</p>";
+  throw new Error("maplibregl missing");
+}
+
 const [cfg, validation] = await Promise.all([
   fetch("data/species.json?v=" + APP_VERSION).then((r) => r.json()),
   fetch("data/validation.json?v=" + APP_VERSION).then((r) => (r.ok ? r.json() : null)).catch(() => null),
